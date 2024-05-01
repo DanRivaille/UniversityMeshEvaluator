@@ -45,7 +45,7 @@ def load_courses_list(semester_json: dict) -> [Course]:
 def load_course(course_json: dict) -> Course:
   course_id = course_json.get('course_id')
   course_title = course_json.get('course_title')
-  prerequisites = []
+  prerequisites = load_prerequisites(course_json)
 
   return Course(course_id, course_title, prerequisites)
 

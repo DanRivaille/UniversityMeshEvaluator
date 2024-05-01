@@ -6,3 +6,6 @@ class Course:
     self.course_id: str = course_id
     self.course_title: str = course_title
     self.prerequisites: [Prerequisite] = prerequisites
+
+  def __str__(self) -> str:
+    return self.course_id
