@@ -3,3 +3,6 @@ class Vertex:
     self.id: str = vertex_id
     self.prev: [Vertex] = prev_vertices
     self.next: [Vertex] = next_vertices
+
+  def __str__(self) -> str:
+    return self.id
