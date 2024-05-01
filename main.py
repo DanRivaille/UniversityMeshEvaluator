@@ -1,5 +1,6 @@
 import json
 
+from src.graph.graph_builder import GraphBuilder
 from src.mesh_loader.mesh_loader import load_curricular_mesh
 
 
@@ -15,6 +16,8 @@ instance_pathfile = 'instances/example.json'
 instance = load_jsonfile(instance_pathfile)
 
 mesh = load_curricular_mesh(instance)
+
+graph = GraphBuilder.build_from_mesh(mesh)
 
 print()
 

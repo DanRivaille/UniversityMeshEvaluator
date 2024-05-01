@@ -1,6 +1,7 @@
 from src.graph.vertex import Vertex
 
 
-class CurricularGraph:
-  def __init__(self, semesters: [[Vertex]]):
-    self.semesters: [[Vertex]] = semesters
+class Graph:
+  def __init__(self, layers: [[Vertex]], vertices_set: dict[Vertex]):
+    self.layers: [[Vertex]] = layers
+    self.vertices_set: dict = vertices_set
