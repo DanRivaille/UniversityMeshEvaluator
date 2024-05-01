@@ -1,0 +1,170 @@
+{
+  "name": "Example",
+  "academic_catalog": "202405",
+  "program": "UNAB0001",
+  "curricular_mesh": [
+    {
+      "semester": 1,
+      "area": "0001-1SEM",
+      "area_desc": "1 SEM EXAMPLE",
+      "courses": [
+        {
+          "course_id": "A",
+          "course_title": "AAA",
+          "prerequisites": []
+        },
+        {
+          "course_id": "B",
+          "course_title": "BBB",
+          "prerequisites": []
+        },
+        {
+          "course_id": "C",
+          "course_title": "CCC",
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "area": "0001-2SEM",
+      "area_desc": "2 SEM EXAMPLE",
+      "courses": [
+        {
+          "course_id": "D",
+          "course_title": "DDD",
+          "prerequisites": [
+            {
+              "cod_prereq": "A",
+              "connector": null
+            }
+          ]
+        },
+        {
+          "course_id": "E",
+          "course_title": "EEE",
+          "prerequisites": [
+            {
+              "cod_prereq": "B",
+              "connector": null
+            }
+          ]
+        },
+        {
+          "course_id": "F",
+          "course_title": "FFF",
+          "prerequisites": []
+        }
+      ]
+    },
+    {
+      "semester": 3,
+      "area": "0001-3SEM",
+      "area_desc": "3 SEM EXAMPLE",
+      "courses": [
+        {
+          "course_id": "G",
+          "course_title": "GGG",
+          "prerequisites": [
+            {
+              "cod_prereq": "E",
+              "connector": null
+            }
+          ]
+        },
+        {
+          "course_id": "H",
+          "course_title": "HHH",
+          "prerequisites": [
+            {
+              "cod_prereq": "E",
+              "connector": null
+            }
+          ]
+        },
+        {
+          "course_id": "I",
+          "course_title": "III",
+          "prerequisites": [
+            {
+              "cod_prereq": "F",
+              "connector": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester": 4,
+      "area": "0001-4SEM",
+      "area_desc": "4 SEM EXAMPLE",
+      "courses": [
+        {
+          "course_id": "J",
+          "course_title": "JJJ",
+          "prerequisites": [
+            {
+              "cod_prereq": "G",
+              "connector": null
+            },
+            {
+              "cod_prereq": "H",
+              "connector": null
+            }
+          ]
+        },
+        {
+          "course_id": "K",
+          "course_title": "KKK",
+          "prerequisites": []
+        },
+        {
+          "course_id": "L",
+          "course_title": "LLL",
+          "prerequisites": [
+            {
+              "cod_prereq": "C",
+              "connector": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "semester": 5,
+      "area": "0001-5SEM",
+      "area_desc": "5 SEM EXAMPLE",
+      "courses": [
+        {
+          "course_id": "M",
+          "course_title": "MMM",
+          "prerequisites": [
+            {
+              "cod_prereq": "J",
+              "connector": null
+            },
+            {
+              "cod_prereq": "K",
+              "connector": null
+            }
+          ]
+        },
+        {
+          "course_id": "N",
+          "course_title": "NNN",
+          "prerequisites": [
+            {
+              "cod_prereq": "K",
+              "connector": null
+            }
+          ]
+        },
+        {
+          "course_id": "O",
+          "course_title": "OOO",
+          "prerequisites": []
+        }
+      ]
+    }
+  ]
+}
