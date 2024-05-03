@@ -23,5 +23,7 @@ critic_path = graph.get_critic_path()
 
 print(critic_path)
 
+graph.update_critical_score()
+
 print()
 
