@@ -19,5 +19,9 @@ mesh = load_curricular_mesh(instance)
 
 graph = GraphBuilder.build_from_mesh(mesh)
 
+critic_path = graph.get_critic_path()
+
+print(critic_path)
+
 print()
 
