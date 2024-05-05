@@ -12,19 +12,19 @@ def build_layer_from_semester(semester: Semester, vertices_set: dict[Vertex]) ->
     vertex_id = course.course_id
 
     if vertex_id not in vertices_set:
-      vertices_set[vertex_id] = create_new_vertex(course, vertices_set)
+      vertices_set[vertex_id] = create_new_vertex(course, semester.num_semester, vertices_set)
 
     new_layer.append(vertices_set[vertex_id])
 
   return new_layer
 
 
-def create_new_vertex(course: Course, vertices_set: dict[Vertex]) -> Vertex:
+def create_new_vertex(course: Course, n_semester: int, vertices_set: dict[Vertex]) -> Vertex:
   vertex_id = course.course_id
   prev_vertices = []
   next_vertices = []
 
-  new_vertex = Vertex(vertex_id, prev_vertices, next_vertices)
+  new_vertex = Vertex(vertex_id, n_semester - 1, prev_vertices, next_vertices)
 
   for prerequisite in course.prerequisites:
     prerequisite_id = prerequisite.cod_prerequisite
