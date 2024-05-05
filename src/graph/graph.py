@@ -38,7 +38,6 @@ class Graph:
     vertices_to_process = deque(self.layers[-1])
 
     backward(vertices_to_process, critic_path_set)
-
     return critic_path_set
 
   def update_critical_score(self) -> None:
