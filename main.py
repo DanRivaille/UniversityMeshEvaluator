@@ -5,7 +5,7 @@ from src.mesh_loader.mesh_loader import load_curricular_mesh
 
 
 def load_jsonfile(pathfile: str) -> dict:
-  with open(pathfile, 'r') as json_file:
+  with open(pathfile, 'r', encoding='UTF-8') as json_file:
     data = json.load(json_file)
 
   return data

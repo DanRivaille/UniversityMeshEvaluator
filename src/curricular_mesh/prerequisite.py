@@ -5,3 +5,6 @@ class Prerequisite:
 
   def __str__(self) -> str:
     return self.cod_prerequisite
+
+  def __repr__(self) -> str:
+    return self.cod_prerequisite

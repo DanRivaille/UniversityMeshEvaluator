@@ -9,3 +9,6 @@ class Course:
 
   def __str__(self) -> str:
     return self.course_id
+
+  def __repr__(self) -> str:
+    return self.course_id

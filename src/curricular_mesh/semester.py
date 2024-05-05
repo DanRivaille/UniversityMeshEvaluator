@@ -9,4 +9,7 @@ class Semester:
     self.courses: [Course] = courses
 
   def __str__(self) -> str:
+    return f'SEM_{self.num_semester}'
+
+  def __repr__(self) -> str:
     return self.area

@@ -7,3 +7,9 @@ class CurricularMesh:
     self.academic_catalog = academic_catalog
     self.program = program
     self.semesters = semesters
+
+  def __str__(self) -> str:
+    return self.name
+
+  def __repr__(self) -> str:
+    return f'{self.program}-{self.academic_catalog}'
