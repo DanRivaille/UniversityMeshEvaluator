@@ -1,4 +1,4 @@
-from neighbors_generator import NeighborsGenerator
+from src.graph.neighbors_generator.neighbors_generator import NeighborsGenerator
 from src.graph.vertex import Vertex
 
 

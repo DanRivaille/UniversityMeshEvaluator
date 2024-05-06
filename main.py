@@ -17,7 +17,7 @@ instance = load_jsonfile(instance_pathfile)
 
 mesh = load_curricular_mesh(instance)
 
-graph = GraphBuilder.build_from_mesh(mesh)
+graph = GraphBuilder.build_from_mesh(mesh, True)
 
 critic_path = graph.get_critic_path()
 
