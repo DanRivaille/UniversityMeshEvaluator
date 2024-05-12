@@ -53,7 +53,7 @@ class Graph:
         forward(vertices_to_process, vertices_already_process, self.check_continuity)
 
         total_critical_score = len(vertices_already_process) - 1
-        direct_critical_score = len(list(NextNeighborsGenerator(True).get_neighbors(vertex)))
+        direct_critical_score = len(list(NextNeighborsGenerator(self.check_continuity).get_neighbors(vertex)))
         indirect_critical_score = total_critical_score - direct_critical_score
 
         vertex.direct_critical_score = direct_critical_score
