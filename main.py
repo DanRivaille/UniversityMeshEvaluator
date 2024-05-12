@@ -1,6 +1,7 @@
 import json
 
 from src.graph.graph_builder import GraphBuilder
+from src.graph.graph_updater.graph_updater import GraphUpdater
 from src.mesh_loader.mesh_loader import load_curricular_mesh
 
 
@@ -18,6 +19,8 @@ instance = load_jsonfile(instance_pathfile)
 mesh = load_curricular_mesh(instance)
 
 graph = GraphBuilder.build_from_mesh(mesh, True)
+
+GraphUpdater.advance_vertex(graph, 'F')
 
 critic_path = graph.get_critic_path()
 
