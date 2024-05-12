@@ -20,7 +20,8 @@ mesh = load_curricular_mesh(instance)
 
 graph = GraphBuilder.build_from_mesh(mesh, True)
 
-GraphUpdater.advance_vertex(graph, 'F')
+#GraphUpdater(True).advance_vertex(graph, 'F')
+GraphUpdater.update_delayed_vertex(graph, graph.vertices_set.get('M'))
 
 critic_path = graph.get_critic_path()
 
