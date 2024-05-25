@@ -2,6 +2,7 @@ from src.curricular_mesh.course import Course
 from src.curricular_mesh.curricular_mesh import CurricularMesh
 from src.curricular_mesh.semester import Semester
 from src.graph.graph import Graph
+from src.graph.graph_params import GraphParams
 from src.graph.vertex import Vertex
 
 
@@ -39,7 +40,7 @@ def create_new_vertex(course: Course, n_semester: int, vertices_set: dict[Vertex
 
 class GraphBuilder:
   @staticmethod
-  def build_from_mesh(mesh: CurricularMesh, check_continuity: bool) -> Graph:
+  def build_from_mesh(mesh: CurricularMesh, params: GraphParams) -> Graph:
     vertices_set: dict[Vertex] = dict()
     layers = []
 
@@ -47,4 +48,4 @@ class GraphBuilder:
       new_layer = build_layer_from_semester(semester, vertices_set)
       layers.append(new_layer)
 
-    return Graph(layers, vertices_set,check_continuity)
+    return Graph(layers, vertices_set, params)
