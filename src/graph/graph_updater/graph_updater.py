@@ -27,7 +27,6 @@ class GraphUpdater:
     for vertex_to_update in vertices_to_update:
       GraphUpdater.update_delayed_vertex(graph, vertex_to_update)
 
-
   @staticmethod
   def update_delayed_vertex(graph: Graph, vertex_id: str):
     vertex: Vertex = graph.vertices_set.get(vertex_id, None)
