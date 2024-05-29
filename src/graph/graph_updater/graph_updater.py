@@ -1,13 +1,14 @@
 from collections import deque
 
 from src.graph.graph import Graph
+from src.graph.graph_params import GraphParams
 from src.graph.graph_traversal.graph_traversal import GraphTraversal
 from src.graph.vertex import Vertex
 
 
 class GraphUpdater:
-  def __init__(self, check_continuity: bool):
-    self.check_continuity: bool = check_continuity
+  def __init__(self, params: GraphParams):
+    self.params: GraphParams = params
 
   def advance_vertex(self, graph: Graph, vertex_id: str):
     vertex: Vertex = graph.vertices_set.get(vertex_id, None)
@@ -22,7 +23,7 @@ class GraphUpdater:
 
     vertices_to_update = set()
     vertices_to_process = deque([vertex])
-    GraphTraversal.forward(vertices_to_process, vertices_to_update, self.check_continuity)
+    GraphTraversal.forward(vertices_to_process, vertices_to_update, self.params)
 
     for vertex_to_update in vertices_to_update:
       GraphUpdater.update_delayed_vertex(graph, vertex_to_update)
