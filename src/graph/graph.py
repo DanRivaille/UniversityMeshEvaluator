@@ -19,7 +19,7 @@ class Graph:
     GraphTraversal.backward(vertices_to_process, critic_path_set, self.params)
     return critic_path_set
 
-  def update_critical_score(self) -> None:
+  def compute_critical_score(self) -> None:
     for layer in self.layers:
       for vertex in layer:
         vertices_already_process = set()
@@ -32,3 +32,18 @@ class Graph:
 
         vertex.direct_critical_score = direct_critical_score
         vertex.indirect_critical_score = indirect_critical_score
+
+  def normalize_critical_score(self) -> None:
+    total_critical_score = 0
+    for layer in self.layers:
+      for vertex in layer:
+        total_critical_score += vertex.direct_critical_score + vertex.indirect_critical_score
+
+    for layer in self.layers:
+      for vertex in layer:
+        total_critical_score_from_vertex = vertex.direct_critical_score + vertex.indirect_critical_score
+        vertex.normalize_critical_score = total_critical_score_from_vertex / total_critical_score
+
+  def update_critical_score(self) -> None:
+    self.compute_critical_score()
+    self.normalize_critical_score()

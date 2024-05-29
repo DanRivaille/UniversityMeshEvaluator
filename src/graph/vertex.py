@@ -4,19 +4,12 @@ class Vertex:
     self.n_layer: int = n_layer
     self.prev: [Vertex] = prev_vertices
     self.next: [Vertex] = next_vertices
-    self.direct_critical_score = 0
-    self.indirect_critical_score = 0
+    self.direct_critical_score: int = 0
+    self.indirect_critical_score: int = 0
+    self.normalize_critical_score: float = 0.0
 
   def __str__(self) -> str:
     return self.id
 
   def __repr__(self) -> str:
     return f'Vertex({self.id})'
-
-  @staticmethod
-  def get_next_vertices(vertex):
-    return vertex.next
-
-  @staticmethod
-  def get_prev_vertices(vertex):
-    return vertex.prev
