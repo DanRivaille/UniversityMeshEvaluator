@@ -6,7 +6,7 @@ class Vertex:
     self.next: [Vertex] = next_vertices
     self.direct_critical_score: int = 0
     self.indirect_critical_score: int = 0
-    self.normalize_critical_score: float = 0.0
+    self.normalized_critical_score: float = 0.0
 
   def __str__(self) -> str:
     return self.id

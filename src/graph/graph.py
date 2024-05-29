@@ -42,7 +42,7 @@ class Graph:
     for layer in self.layers:
       for vertex in layer:
         total_critical_score_from_vertex = vertex.direct_critical_score + vertex.indirect_critical_score
-        vertex.normalize_critical_score = total_critical_score_from_vertex / total_critical_score
+        vertex.normalized_critical_score = total_critical_score_from_vertex / total_critical_score
 
   def update_critical_score(self) -> None:
     self.compute_critical_score()
