@@ -1,5 +1,7 @@
 import json
 
+import pandas as pd
+
 from src.graph.graph_builder import GraphBuilder
 from src.graph.graph_params import GraphParams
 from src.graph.graph_updater.graph_updater import GraphUpdater
@@ -22,8 +24,9 @@ mesh = load_curricular_mesh(instance)
 params = GraphParams(True, 1)
 graph = GraphBuilder.build_from_mesh(mesh, params)
 
+# Check the graph updater implementation, it must be updated with the new period logic
 #GraphUpdater(params).advance_vertex(graph, 'F')
-GraphUpdater.update_delayed_vertex(graph, graph.vertices_set.get('M'))
+#GraphUpdater.update_delayed_vertex(graph, graph.vertices_set.get('M'))
 
 critic_path = graph.get_critic_path()
 
