@@ -3,6 +3,7 @@ import pandas as pd
 from src.curricular_mesh.curricular_mesh import CurricularMesh
 from src.graph.graph import Graph
 from src.graph.vertex import Vertex
+from src.utils.utils import compute_percentile
 
 
 class ExcelBuilder:
@@ -20,7 +21,9 @@ class ExcelBuilder:
     total_critic_score_column = []
     n_courses = 0
 
-    for semester in mesh.semesters:
+    for index_semester, semester in enumerate(mesh.semesters):
+      percentile_90 = compute_percentile(graph, index_semester, 90)
+
       for course in semester.courses:
         semester_column.append(f'{semester.num_semester} SEM {mesh.name}')
         courses_id_column.append(course.course_id)
