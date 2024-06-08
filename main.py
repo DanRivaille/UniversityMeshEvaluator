@@ -1,7 +1,6 @@
 import json
 
-import pandas as pd
-
+from src.excel_builder.excel_builder import ExcelBuilder
 from src.graph.graph_builder import GraphBuilder
 from src.graph.graph_params import GraphParams
 from src.graph.graph_updater.graph_updater import GraphUpdater
@@ -15,13 +14,13 @@ def load_jsonfile(pathfile: str) -> dict:
   return data
 
 
-instance_pathfile = 'instances/example.json'
+instance_pathfile = 'instances/UNAB11100_201810.json'
 
 instance = load_jsonfile(instance_pathfile)
 
 mesh = load_curricular_mesh(instance)
 
-params = GraphParams(True, 1)
+params = GraphParams(True, 2)
 graph = GraphBuilder.build_from_mesh(mesh, params)
 
 # Check the graph updater implementation, it must be updated with the new period logic
@@ -33,6 +32,10 @@ critic_path = graph.get_critic_path()
 print(critic_path)
 
 graph.update_critical_score()
+
+excel_builder = ExcelBuilder()
+excel_builder.build_excel(mesh, graph, critic_path)
+excel_builder.save_excel(instance_pathfile.replace('instances', 'output').replace('json', 'xlsx'))
 
 print()
 
