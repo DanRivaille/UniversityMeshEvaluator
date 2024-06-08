@@ -1,8 +1,12 @@
 import sys
+import os
 
 from src.mesh_evaluator import evaluate_mesh
 
 
-instance_pathfile = sys.argv[1]
+instances_folder_path = sys.argv[1]
 
-evaluate_mesh(instance_pathfile)
+for filename in os.listdir(instances_folder_path):
+  filepath = os.path.join(instances_folder_path, filename)
+  if os.path.isfile(filepath):
+    evaluate_mesh(filepath)
