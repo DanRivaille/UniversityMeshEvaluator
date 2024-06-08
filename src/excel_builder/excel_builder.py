@@ -19,6 +19,9 @@ class ExcelBuilder:
     direct_critic_score_column = []
     indirect_critic_score_column = []
     total_critic_score_column = []
+    percentile_threshold_column = []
+    exceeds_threshold_column = []
+
     n_courses = 0
 
     for index_semester, semester in enumerate(mesh.semesters):
@@ -28,15 +31,19 @@ class ExcelBuilder:
         semester_column.append(f'{semester.num_semester} SEM {mesh.name}')
         courses_id_column.append(course.course_id)
         courses_title_column.append(course.course_title)
-        critic_path_column.append('Si' if course.course_id in critic_path else 'No')
+        critic_path_column.append('TRUE' if course.course_id in critic_path else 'FALSE')
 
         vertex_of_course: Vertex = graph.vertices_set.get(course.course_id)
         direct_score_vertex = vertex_of_course.direct_critical_score
         indirect_score_vertex = vertex_of_course.indirect_critical_score
+        total_critic_score = direct_score_vertex + indirect_score_vertex
         direct_critic_score_column.append(direct_score_vertex)
         indirect_critic_score_column.append(indirect_score_vertex)
-        total_critic_score_column.append(direct_score_vertex + indirect_score_vertex)
+        total_critic_score_column.append(total_critic_score)
         normalized_critic_score_column.append(vertex_of_course.normalized_critical_score)
+
+        percentile_threshold_column.append(percentile_90)
+        exceeds_threshold_column.append('TRUE' if total_critic_score > percentile_90 else 'FALSE')
 
         n_courses += 1
 
@@ -48,8 +55,10 @@ class ExcelBuilder:
       'COURSE_IDENTIFICATION': courses_id_column,
       'COURSE_TITLE': courses_title_column,
       'CRITIC_PATH': critic_path_column,
-      'NORMALIZED_CRITIC_SCORE': normalized_critic_score_column,
       'TOTAL_CRITIC_SCORE': total_critic_score_column,
+      'PERCENTILE_THRESHOLD': percentile_threshold_column,
+      'EXCEEDS_THRESHOLD': exceeds_threshold_column,
+      'NORMALIZED_CRITIC_SCORE': normalized_critic_score_column,
       'DIRECT_CRITIC_SCORE': direct_critic_score_column,
       'INDIRECT_CRITIC_SCORE': indirect_critic_score_column
     }
