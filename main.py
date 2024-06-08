@@ -1,18 +1,11 @@
-import json
 import sys
 
+from src.utils.utils import load_jsonfile
 from src.excel_builder.excel_builder import ExcelBuilder
 from src.graph.graph_builder import GraphBuilder
 from src.graph.graph_params import GraphParams
 from src.graph.graph_updater.graph_updater import GraphUpdater
 from src.mesh_loader.mesh_loader import load_curricular_mesh
-
-
-def load_jsonfile(pathfile: str) -> dict:
-  with open(pathfile, 'r', encoding='UTF-8') as json_file:
-    data = json.load(json_file)
-
-  return data
 
 
 instance_pathfile = sys.argv[1]
